@@ -1,5 +1,5 @@
 const express = require('express');
-const burger = require('../models/hamburger.js');
+const hamburger = require('../models/hamburger.js');
 
 const router = express.Router();
 
@@ -16,7 +16,7 @@ router.get("/", function (req, res) {
 });
 // post route - for adding a burger in the database
 router.post("/api/hamburgers", function (req, res) {
-  burger.insertOne(['hamburger_name', 'eaten'], [req.body.name, 0], function (result) {
+  hamburger.insertOne(['hamburger_name', 'eaten'], [req.body.name, 0], function (result) {
     // Send back the ID of the new quote
     console.log(result); //i added this out of curiosity
     res.json({ id: result.insertId });

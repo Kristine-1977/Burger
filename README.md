@@ -1,6 +1,6 @@
-# Burger Application
+# Hamburger Application
 
-The Burger application was built with the following technologies:
+The Hamburger application was built with the following technologies:
 MySQL
 Express
 Handlebars

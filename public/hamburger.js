@@ -4,7 +4,7 @@ $(function () {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
-        if ($("#burger").val().trim() == "") {
+        if ($("#hamburger").val().trim() == "") {
             alert("Please enter a hamburger name before you add it!!!")
             return;
         }
@@ -18,7 +18,7 @@ $(function () {
             data: newHamburger
         }).then(
             function () {
-                console.log("created new burger");
+                console.log("created new hamburger");
                 // Reload the page to get the updated list
                 location.reload();
             }
@@ -34,7 +34,7 @@ $(function () {
         };
 
         // Send the PUT request.
-        $.ajax("/api/burgers/" + id, {
+        $.ajax("/api/hamburgers/" + id, {
             type: "PUT",
             data: eatenObj
         }).then(

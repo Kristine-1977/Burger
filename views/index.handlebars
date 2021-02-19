@@ -14,11 +14,11 @@
 
                 <ul class="">
                     {{#each hamburgers}}
-                    {{#unless this.devoured}}
+                    {{#unless this.eaten}}
                     <li class=" mb-1">
                         <p class="btn btn-outline-secondary">
                             {{this.id}}. {{this.hamburger_name}}
-                            <button class="btn btn-success btn-sm pl-3 devour_it" data-id="{{this.id}}">Devour
+                            <button class="btn btn-success btn-sm pl-3 devour_it" data-id="{{this.id}}">Eat
                                 It</button>
                         </p>
                     </li>
@@ -32,7 +32,7 @@
                 <h2 class="text-muted">Eaten Hamburgers</h2>
                 <ul class="">
                     {{#each hamburgers}}
-                    {{#if this.devoured}}
+                    {{#if this.eaten}}
                     <div>
                         <button class="btn btn-outline-secondary btn-sm disabled mb-1">
                             {{!-- <p class=""> --}}
