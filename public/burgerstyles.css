@@ -1,0 +1,29 @@
+body {
+  background-color: #cab36c;
+}
+
+ul li {
+  list-style: none;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+#burger {
+  margin: 20px;
+}
+.jumbotron {
+  font-weight: bold;
+  font-size: x-large;
+  color: white;
+  background-color: #6b0303;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #e6c259 !important;
+  text-decoration: none;
+}

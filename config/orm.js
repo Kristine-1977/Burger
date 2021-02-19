@@ -40,43 +40,43 @@ function objToSql(ob) {
 }
 
 const orm = {
-    selectAll: function(tableName, cb) {
-        let queryString = "Select * from " + tableName + ";"
-        connection.query(queryString, (err, data) => {
-            if(err) throw err;
-            cb(data)
-        })
-    },
-    //INSERT INTO TABLE (COLUMN NAME) VALUES (COLUMN VALUE)
-    insertOne: function(tableName, colName, colValue, cb) {
-        let query = "INSERT INTO " + tableName;
-        query += " (";
-        query += colName.toString();
-        query += ")";
-        query += " VALUES (";
-        query += printQuestionMarks(colValue.length);
-        query += ")";
+  selectAll: function (tableName, cb) {
+    let queryString = "Select * from " + tableName + ";"
+    connection.query(queryString, (err, data) => {
+      if (err) throw err;
+      cb(data)
+    })
+  },
+  //INSERT INTO TABLE (COLUMN NAME) VALUES (COLUMN VALUE)
+  insertOne: function (tableName, colName, colValue, cb) {
+    let query = "INSERT INTO " + tableName;
+    query += " (";
+    query += colName.toString();
+    query += ")";
+    query += " VALUES (";
+    query += printQuestionMarks(colValue.length);
+    query += ")";
 
-        connection.query(query, colValue, function(err, result) {
-            if (err) {
-              throw err;
-            }      
-            cb(result);
-        });        
-    },
-    //UPDATE TABLE SET COLUMN NAME= COLUMN VALUE WHERE CONDITION IS MET
-    updateOne: function(tableName, objColVals, condition, cb) {
-       let query = "UPDATE " + tableName;
-       query += " SET ";
-       query += objToSql(objColVals)
-       query += " WHERE ";
-       query += condition;
-       
-       connection.query(query, (err, result) => {
-         if(err) throw err;
-         cb(result)
-       })
-    }
+    connection.query(query, colValue, function (err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+  //UPDATE TABLE SET COLUMN NAME= COLUMN VALUE WHERE CONDITION IS MET
+  updateOne: function (tableName, objColVals, condition, cb) {
+    let query = "UPDATE " + tableName;
+    query += " SET ";
+    query += objToSql(objColVals)
+    query += " WHERE ";
+    query += condition;
+
+    connection.query(query, (err, result) => {
+      if (err) throw err;
+      cb(result)
+    })
+  }
 };
 
 // Export the orm object for the model (burger.js).
