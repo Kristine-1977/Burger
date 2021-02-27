@@ -8,7 +8,7 @@ $(function () {
             alert("Please enter a hamburger name before you add it!!!")
             return;
         }
-        var newbHamburger = {
+        var newHamburger = {
             name: $("#hamburger").val().trim()
         };
 

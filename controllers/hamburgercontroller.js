@@ -10,15 +10,16 @@ router.get("/", function (req, res) {
     const hamburgerObj = {
       hamburgers: data
     };
-    //   console.log(burgerObj);
+    console.log(hamburgerObj);
     res.render("index", hamburgerObj);
   });
 });
 // post route - for adding a burger in the database
 router.post("/api/hamburgers", function (req, res) {
+  console.log(req.body)
   hamburger.insertOne(['hamburger_name', 'eaten'], [req.body.name, 0], function (result) {
     // Send back the ID of the new quote
-    console.log(result); //i added this out of curiosity
+    //   console.log(result); //i added this out of curiosity
     res.json({ id: result.insertId });
   });
 });
